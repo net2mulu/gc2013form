@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateLastwordsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('lastwords', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name');
-            $table->string('dept');
-            $table->string('kiot_id')->unique();
-            $table->string('password');
-            $table->rememberToken();
-            $table->longText('lastword')->nullable();
+            $table->string('user_id')->unique();
+            $table->longText('lastword');
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('lastwords');
     }
 }

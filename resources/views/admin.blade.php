@@ -174,20 +174,35 @@
     <div id="Wrapper">
         <div class="uk-container">
              <img class="" src="assets/gc app logo.png" style="width: 100%" alt="">
+             <livewire:datatable
+              model="App\Models\User"
+              include="id, full_name,kiot_id,lastword,created_at|Created"
+              searchable="full_name, kiot_id"
+              exclude="updated_at"
+              exportable
+             />
+              <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    this.closest('form').submit();">
+                    {{ __('Log Out') }}
+                    </a>
+                    </form>
             <div class="uk-width-1-3@m m-auto my-16">
-                <div class="mb-4">
-                    <h2 >Follow the following<span class="uk-text-bold"> Steps</span></h2>                    
-                </div>
-
-                <div class="uk-width m-auto mb-10" style="color: rgb(0, 126, 84);">
-                    <p>*Register for to have your account ready.</p>
-                    <p>*Use the right Id-number and password to login</p>
-                    <p>*Login and insert Your lastword</p>
-                </div>
-
-              
-                
-                    <livewire:register />
+               {{-- <livewire:datatable
+                    model="App\Models\User"
+                    with="user, user.lastword"
+                    sort="full_name|asc"
+                    include="id, full_name,kiot_id,user.lastword, created_at|Created"
+                    searchable="full_name, kiot_id"
+                 hide="latitude, longitude" 
+                    dates="created_at"
+                    times="bedtime|g:i A"
+                    hideable="select"
+                    exportable
+                /> --}}
                
 
                 <div class="mb-4">
