@@ -16,6 +16,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('full_name');
+            $table->string('phone');
             $table->string('dept');
             $table->string('kiot_id')->unique();
             $table->string('password');

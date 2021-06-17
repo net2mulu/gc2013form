@@ -66,7 +66,7 @@ class Lastwords extends Component
           $word = null;
       }
      
-        return view('livewire.lastwords' , [
+        return view('livewire.lastword' , [
           'finalword' => $word
         ]);
     }
